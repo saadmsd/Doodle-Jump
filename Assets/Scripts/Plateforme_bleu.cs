@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plateform_bleu : MonoBehaviour
+public class Plateforme_bleu : MonoBehaviour
 {
     public float jumpForce = 10f;
     public float speed = 2f; // Vitesse de déplacement de la plateforme

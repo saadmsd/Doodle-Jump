@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class plateform_grise : MonoBehaviour
+public class Plateforme_marron : MonoBehaviour
 {
     
     private void OnCollisionEnter2D(Collision2D collision)

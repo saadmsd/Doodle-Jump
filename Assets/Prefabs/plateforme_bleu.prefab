@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2886088997924046773}
   - component: {fileID: 1262842616398435944}
   m_Layer: 0
-  m_Name: plateform_bleu
-  m_TagString: Untagged
+  m_Name: plateforme_bleu
+  m_TagString: plateforme_bleu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,6 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ad088a902ca49cdb617134c3603deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
+  jumpForce: 8
   speed: 2
   moveDistance: 3
