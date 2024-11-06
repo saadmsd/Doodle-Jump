@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - plateform_verte
-  - plateform_grise
+  - platformV
+  - platformB
+  - platformM
   layers:
   - Default
   - TransparentFX
