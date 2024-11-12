@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
+using UnityEngine.UI;   
+
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     public GameObject platformVPrefab;
     public GameObject platformBPrefab;
     public GameObject platformMPrefab;
@@ -12,8 +17,27 @@ public class GameManager : MonoBehaviour
     public int numberOfPlatforms = 200;
     private float ressortSpawnChance = 0.2f; // Probabilité d'apparition du ressort (20%)
 
-    void Start()
+    
+    public Text scoreText; // Référence au composant UI Text pour afficher le score
+    private int score = 0;
+    
+    private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this; // Assigne cette instance à la propriété statique Instance
+            DontDestroyOnLoad(gameObject); // Conserve l'objet entre les scènes
+        }
+        else
+        {
+            Destroy(gameObject); // Détruit les objets en double
+        }
+    }
+    void Start()
+    {   
+        // Initialiser le score à 0
+        UpdateScoreText();
+
         Vector3 spawnPosition = new Vector3();
         for (int i = 0; i < numberOfPlatforms; i++)
         {
@@ -61,5 +85,29 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PlayerDied()
+    {
+        // Affiche le score actuel dans la console
+        Debug.Log("Game Over! Score: " + score);
+
+        // Retourne au menu principal (assume que la scène 0 est le menu)
+        SceneManager.LoadScene(0);
+    }
+
+    // Met à jour le texte du score
+    void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score; // Met à jour le texte du score dans l'UI
+        }
+    }
+
+    public void IncreaseScore()
+    {
+        score++;  // Augmente le score
+        UpdateScoreText();  // Met à jour l'affichage du score
     }
 }

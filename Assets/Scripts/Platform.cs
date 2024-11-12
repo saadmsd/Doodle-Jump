@@ -5,6 +5,7 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     public float jumpForce = 10f;
+    private bool isTouched = false; 
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -16,7 +17,14 @@ public class Platform : MonoBehaviour
                 Vector2 velocity = rb.velocity;
                 velocity.y = jumpForce;
                 rb.velocity = velocity;
+
+                if (!isTouched)
+                {
+                    GameManager.Instance.IncreaseScore();
+                    isTouched = true;  // Marque la plateforme comme ayant été touchée
+                }
             }
         }
     }
+
 }

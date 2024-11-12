@@ -12,6 +12,8 @@ public class Plateforme_bleu : MonoBehaviour
     private float leftLimit = -2.5f;
     private float rightLimit = 2.5f;
     private bool movingRight = true;
+    private bool isTouched = false;
+    
 
     void Start()
     {
@@ -52,7 +54,15 @@ public class Plateforme_bleu : MonoBehaviour
                 Vector2 velocity = rb.velocity;
                 velocity.y = jumpForce;
                 rb.velocity = velocity;
+
+               // Si la plateforme n'a pas encore été touchée, augmente le score
+                if (!isTouched)
+                {
+                    GameManager.Instance.IncreaseScore();
+                    isTouched = true;  // Marque la plateforme comme ayant été touchée
+                }
             }
         }
     }
+    
 }
