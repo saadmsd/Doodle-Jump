@@ -18,7 +18,11 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText; 
     private float maxHeight = 0f; // Hauteur maximale atteinte par le joueur
-    public Transform player; // Référence au joueur (à assigner dans l'inspecteur)
+    public Transform player;
+
+    public GameObject gameOverUI; // Panneau Game Over
+    public Text finalScoreText; // texte pour afficher le score final
+
 
     private void Awake()
     {
@@ -104,6 +108,51 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         Debug.Log("Game Over! Score: " + Mathf.FloorToInt(maxHeight));
-        SceneManager.LoadScene(0);
+
+        // Afficher le panneau Game Over
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+        }
+
+        // Afficher le score final
+        
+        finalScoreText.text = "Score: " + Mathf.FloorToInt(maxHeight);
+        
+
+        // Mettre le jeu en pause
+        Time.timeScale = 0f;
     }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f; // Réactiver le temps
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Recharger la scène actuelle
+    }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f; // Réactiver le temps
+        SceneManager.LoadScene("MenuScene"); // Remplacer "Menu" par le nom exact de la scène du menu
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit Game");
+        Application.Quit(); 
+        
+        // Pour confirmer le fonctionnement dans l'éditeur Unity
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
+
+
+
+
+
+    
+
 }
+
+
