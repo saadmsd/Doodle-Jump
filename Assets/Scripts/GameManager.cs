@@ -12,16 +12,17 @@ public class GameManager : MonoBehaviour
     public GameObject platformBPrefab;
     public GameObject platformMPrefab;
     public GameObject ressortPrefab; 
+    public GameObject holePrefab;
 
     public int numberOfPlatforms = 200;
     private float ressortSpawnChance = 0.2f; 
+    private float holeSpawnChance = 0.1f;
 
     public Text scoreText; 
     private float maxHeight = 0f; // Hauteur maximale atteinte par le joueur
     public Transform player;
 
     public GameObject gameOverUI; // Panneau Game Over
-    public Text finalScoreText; // texte pour afficher le score final
 
 
     private void Awake()
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
             if (platformType == 0)
             { 
                 Vector3 spawnPosition2 = new Vector3(spawnPosition.x, spawnPosition.y);
-                spawnPosition2.y += Random.Range(0f, 3f);
+                spawnPosition2.y += Random.Range(1f, 3f);
                 spawnPosition2.x = Random.Range(-2.5f, 2.5f);
                 Instantiate(platformMPrefab, spawnPosition2, Quaternion.identity);
 
@@ -80,6 +81,22 @@ public class GameManager : MonoBehaviour
                     float randomXPosition = Random.Range(-0.2f, 0.2f);
                     ressort.transform.localPosition = new Vector3(randomXPosition, 0.1f, 0f);
                 }
+            }
+
+            if (Random.value < holeSpawnChance)
+            {   
+                float randomXPosition;
+                if (spawnPosition.x > -1.5f && spawnPosition.x < 1.5f)
+                {
+                    randomXPosition = spawnPosition.x + 1.5f * (Random.value < 0.5f ? 1 : -1);
+                }
+                else
+                {
+                    randomXPosition = -spawnPosition.x;
+                }
+                float randomYPosition = spawnPosition.y + Random.Range(-0.5f, 0.5f);
+                Vector3 holePosition = new Vector3(randomXPosition, randomYPosition, 0f);
+                Instantiate(holePrefab, holePosition, Quaternion.identity);
             }
         }
     }
@@ -115,9 +132,6 @@ public class GameManager : MonoBehaviour
             gameOverUI.SetActive(true);
         }
 
-        // Afficher le score final
-        
-        finalScoreText.text = "Score: " + Mathf.FloorToInt(maxHeight);
         
 
         // Mettre le jeu en pause

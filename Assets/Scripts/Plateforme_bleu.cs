@@ -5,8 +5,7 @@ using UnityEngine;
 public class Plateforme_bleu : MonoBehaviour
 {
     public float jumpForce = 10f;
-    public float speed = 2f; // Vitesse de déplacement de la plateforme
-    public float moveDistance = 3f; // Distance maximale de déplacement depuis la position initiale
+    public float speed; // Vitesse de déplacement de la plateforme
 
     private Vector3 startPosition;
     private float leftLimit = -2.5f;
@@ -18,6 +17,7 @@ public class Plateforme_bleu : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+        speed = Random.Range(1f, 3f);
     }
 
     void FixedUpdate()
