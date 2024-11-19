@@ -14,7 +14,7 @@ public class DeathZone : MonoBehaviour
         lastPlayerYPosition = player.transform.position.y - offsetHeight;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Vérifier si le joueur monte (si sa position Y augmente)
         if (player.transform.position.y > lastPlayerYPosition)

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public int numberOfPlatforms = 200;
     private float ressortSpawnChance = 0.2f; 
-    private float holeSpawnChance = 0.1f;
+    private float holeSpawnChance = 0.05f;
 
     public Text scoreText; 
     private float maxHeight = 0f; // Hauteur maximale atteinte par le joueur
@@ -54,8 +54,15 @@ public class GameManager : MonoBehaviour
             if (platformType == 0)
             { 
                 Vector3 spawnPosition2 = new Vector3(spawnPosition.x, spawnPosition.y);
-                spawnPosition2.y += Random.Range(1f, 3f);
-                spawnPosition2.x = Random.Range(-2.5f, 2.5f);
+                spawnPosition2.y += Random.Range(0f, 1f);
+                if (spawnPosition.x > -1.5f && spawnPosition.x < 1.5f)
+                {
+                    spawnPosition2.x += + 1.5f * (Random.value < 0.5f ? 1 : -1);
+                }
+                else
+                {
+                    spawnPosition2.x += -spawnPosition.x;
+                }
                 Instantiate(platformMPrefab, spawnPosition2, Quaternion.identity);
 
                 int platformType2 = Random.Range(0, 2); 
@@ -88,7 +95,7 @@ public class GameManager : MonoBehaviour
                 float randomXPosition;
                 if (spawnPosition.x > -1.5f && spawnPosition.x < 1.5f)
                 {
-                    randomXPosition = spawnPosition.x + 1.5f * (Random.value < 0.5f ? 1 : -1);
+                    randomXPosition = spawnPosition.x + 2f * (Random.value < 0.5f ? 1 : -1);
                 }
                 else
                 {
@@ -101,7 +108,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (player != null)
         {
@@ -113,7 +120,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
+    
     void UpdateScoreText()
     {
         if (scoreText != null)

@@ -5,7 +5,7 @@ public class DeathZoneFollow : MonoBehaviour
     public Transform player; // Référence au personnage
     public float offsetY = -10f; // Décalage Y de la DeathZone par rapport au personnage
 
-    void Update()
+    void FixedUpdate()
     {
         // Met à jour la position de la DeathZone
         if (player != null)
