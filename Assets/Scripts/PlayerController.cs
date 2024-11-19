@@ -39,13 +39,13 @@ public class PlayerController : MonoBehaviour
         }        
 
         // Si le joueur sort de l'écran, on le replace de l'autre côté
-        if (transform.position.x < -3f)
+        if (transform.position.x < -3.5f)
         {
-            transform.position = new Vector3(3f, transform.position.y, 0);
+            transform.position = new Vector3(3.5f, transform.position.y, 0);
         }
-        else if (transform.position.x > 3f)
+        else if (transform.position.x > 3.5f)
         {
-            transform.position = new Vector3(-3f, transform.position.y, 0);
+            transform.position = new Vector3(-3.5f, transform.position.y, 0);
         }
     }
 }
