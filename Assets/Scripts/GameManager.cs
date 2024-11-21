@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -57,11 +59,11 @@ public class GameManager : MonoBehaviour
                 spawnPosition2.y += Random.Range(0f, 1f);
                 if (spawnPosition.x > -1.5f && spawnPosition.x < 1.5f)
                 {
-                    spawnPosition2.x += + 1.5f * (Random.value < 0.5f ? 1 : -1);
+                    spawnPosition2.x += Random.Range(0.5f, 1.5f) * (Random.value < 0.5f ? 1 : -1);
                 }
                 else
                 {
-                    spawnPosition2.x += -spawnPosition.x;
+                    spawnPosition2.x += -spawnPosition.x + Random.Range(0, 1.5f) * Mathf.Sign(spawnPosition.x);
                 }
                 Instantiate(platformMPrefab, spawnPosition2, Quaternion.identity);
 

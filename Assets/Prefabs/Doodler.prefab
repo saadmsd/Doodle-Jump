@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8790565648746461966}
   - component: {fileID: 2010685879060748551}
   - component: {fileID: 7195909569302513182}
+  - component: {fileID: 9172966289209362636}
+  - component: {fileID: -9105817550650959097}
   m_Layer: 0
   m_Name: Doodler
   m_TagString: Player
@@ -147,7 +149,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 6200000, guid: 843cdaba090534224ac5a137688318d1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -173,3 +175,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   rb: {fileID: 0}
+--- !u!95 &9172966289209362636
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570351167921991219}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 916365c054fe44d8bb3cb2689d4e76a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-9105817550650959097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570351167921991219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f89cc4c11004f7fb11189a8ec9e35f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

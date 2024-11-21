@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5411781060604488719}
   m_Layer: 0
   m_Name: plateforme_marron
-  m_TagString: plateforme_marron
+  m_TagString: platformM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -7,8 +7,7 @@ TagManager:
   - platformV
   - platformB
   - platformM
-  - plateforme_marron
-  - plateforme_bleu
+  - ressort
   layers:
   - Default
   - TransparentFX
