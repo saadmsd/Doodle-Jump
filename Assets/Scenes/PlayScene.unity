@@ -644,10 +644,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ressort
       objectReference: {fileID: 0}
+    - target: {fileID: 6542472163971625746, guid: 76de7c698c32b460690373d3aed702a0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.06
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4378923509391166045, guid: 76de7c698c32b460690373d3aed702a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1417046987}
   m_SourcePrefab: {fileID: 100100000, guid: 76de7c698c32b460690373d3aed702a0, type: 3}
 --- !u!1 &966987354
 GameObject:
@@ -970,6 +977,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2387447790012723214, guid: 76de7c698c32b460690373d3aed702a0, type: 3}
   m_PrefabInstance: {fileID: 944680570}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1417046987
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417046985}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebc89ef5246624193ba9cf9c142a77f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1421804121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1702,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 419185488897949811, guid: 4a99d48b8227f4356ae91ef04037b240, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 419185488897949811, guid: 4a99d48b8227f4356ae91ef04037b240, type: 3}
       propertyPath: m_UseColliderMask
@@ -1682,11 +1710,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 562388778795224084, guid: 4a99d48b8227f4356ae91ef04037b240, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 562388778795224084, guid: 4a99d48b8227f4356ae91ef04037b240, type: 3}
       propertyPath: m_UsedByEffector
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 562388778795224084, guid: 4a99d48b8227f4356ae91ef04037b240, type: 3}
       propertyPath: m_UseAdjacentStartPoint
@@ -1804,6 +1832,10 @@ PrefabInstance:
     - target: {fileID: 2010685879060748551, guid: b831a2022be6d4f2bac63376c7b86f02, type: 3}
       propertyPath: m_GravityScale
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010685879060748551, guid: b831a2022be6d4f2bac63376c7b86f02, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7570351167921991219, guid: b831a2022be6d4f2bac63376c7b86f02, type: 3}
       propertyPath: m_Name

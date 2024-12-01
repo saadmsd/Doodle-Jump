@@ -17,7 +17,6 @@ public class PlayerAnimator : MonoBehaviour
         // Vérifier si la collision est avec une plateforme
         if (collision.relativeVelocity.y > 0f )
         {
-            Debug.Log("Collision with platform");
             if (collision.collider.CompareTag("platformV") || collision.collider.CompareTag("platformB"))
             {
                 animator.SetBool("IsBouncing", true);

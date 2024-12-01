@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class Plateforme_marron : MonoBehaviour
 {
-    
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    private Animator animator;
+    private void OnTriggerEnter2D(Collider2D other)
+    {   
         
         // la plateforme tombe si le joueur est dessus
-        if (collision.relativeVelocity.y <= 0f)
+        if (other.CompareTag("Player"))
         {
+            Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
 
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.gravityScale = 1;
-            Destroy(gameObject, 2f);
-            
-            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (playerRb != null)
+            if (playerRb.velocity.y <= 0)
             {
-                playerRb.velocity = new Vector2(playerRb.velocity.x, -Mathf.Abs(playerRb.velocity.y)); // on inverse la vitesse du joueur en y
+                animator = GetComponent<Animator>();
+                animator.SetBool("crash", true);
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.gravityScale = 1;
+                Destroy(gameObject, 2f);
             }
         }
         
