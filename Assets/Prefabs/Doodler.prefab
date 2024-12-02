@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   rb: {fileID: 0}
+  projectilePrefab: {fileID: 448963695526933188, guid: 9359c93ab60f84adc9eb17889624f49e, type: 3}
 --- !u!95 &9172966289209362636
 Animator:
   serializedVersion: 5
