@@ -16,9 +16,14 @@ public class GameManager : MonoBehaviour
     public GameObject ressortPrefab; 
     public GameObject holePrefab;
 
+    public GameObject monster1Prefab;
+    public GameObject monster2Prefab;
+    public GameObject monster3Prefab;
+
     public int numberOfPlatforms = 200;
     private float ressortSpawnChance = 0.2f; 
     private float holeSpawnChance = 0.05f;
+    private float monsterSpawnChance = 0.05f;
 
     public Text scoreText; 
     private float maxHeight = 0f; // Hauteur maximale atteinte par le joueur
@@ -47,7 +52,7 @@ public class GameManager : MonoBehaviour
         Vector3 spawnPosition = new Vector3();
         for (int i = 0; i < numberOfPlatforms; i++)
         {
-            spawnPosition.y += Random.Range(1f, 3f);
+            spawnPosition.y += Random.Range(1f, 2.5f);
             spawnPosition.x = Random.Range(-2.5f, 2.5f);
 
             int platformType = Random.Range(0, 6);
@@ -106,6 +111,24 @@ public class GameManager : MonoBehaviour
                 float randomYPosition = spawnPosition.y + Random.Range(-0.5f, 0.5f);
                 Vector3 holePosition = new Vector3(randomXPosition, randomYPosition, 0f);
                 Instantiate(holePrefab, holePosition, Quaternion.identity);
+            }
+            if (Random.value < monsterSpawnChance)
+            {
+                spawnPosition.y += 0.5f;
+                spawnPosition.x += Random.Range(0, 2f) * -Mathf.Sign(spawnPosition.x);
+                int monsterType = Random.Range(0, 3);
+                if (monsterType == 0)
+                {
+                    GameObject monster = Instantiate(monster1Prefab, spawnPosition, Quaternion.identity);
+                }
+                else if (monsterType == 1)
+                {
+                    GameObject monster = Instantiate(monster2Prefab, spawnPosition, Quaternion.identity);
+                }
+                else
+                {
+                    GameObject monster = Instantiate(monster3Prefab, spawnPosition, Quaternion.identity);
+                }
             }
         }
     }

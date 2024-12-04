@@ -8,6 +8,8 @@ TagManager:
   - platformB
   - platformM
   - ressort
+  - projectile
+  - monster
   layers:
   - Default
   - TransparentFX

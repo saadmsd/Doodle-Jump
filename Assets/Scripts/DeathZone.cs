@@ -37,5 +37,12 @@ public class DeathZone : MonoBehaviour
             Debug.Log("Player died");
             GameManager.Instance.PlayerDied();
         }
+        else
+        {
+            if (other.gameObject != gameObject)
+            {
+                Destroy(other.gameObject);
+            }
+        }
     }
 }
