@@ -864,7 +864,7 @@ MonoBehaviour:
   monster1Prefab: {fileID: 3283717290866719988, guid: faee89e0acd31474ca59703b7050e7b7, type: 3}
   monster2Prefab: {fileID: 1332659485336323383, guid: 7963eba5f530048cdb96a098d7ce7b67, type: 3}
   monster3Prefab: {fileID: 282238689028292280, guid: 11f4507f527484778ace7a9fc0d1239c, type: 3}
-  numberOfPlatforms: 200
+  numberOfPlatforms: 400
   scoreText: {fileID: 1977213364}
   player: {fileID: 1228015060}
   gameOverUI: {fileID: 1712749575}
@@ -1731,7 +1731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1228015058}
-  offsetHeight: 7
+  offsetHeight: 6
 --- !u!61 &2138281123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1786,7 +1786,7 @@ Transform:
   m_GameObject: {fileID: 2138281121}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14, y: -5.4, z: 2.0738354}
+  m_LocalPosition: {x: 0.14, y: -5.78, z: 2.0738354}
   m_LocalScale: {x: 10, y: 1.2375, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2186,6 +2186,14 @@ PrefabInstance:
     - target: {fileID: 4213547169722130238, guid: cc89ea8f76ffc4b0f8e799bc7de93220, type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272994843665223666, guid: cc89ea8f76ffc4b0f8e799bc7de93220, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272994843665223666, guid: cc89ea8f76ffc4b0f8e799bc7de93220, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8730615057988190891, guid: cc89ea8f76ffc4b0f8e799bc7de93220, type: 3}
       propertyPath: jumpForce

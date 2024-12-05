@@ -39,10 +39,9 @@ public class DeathZone : MonoBehaviour
         }
         else
         {
-            if (other.gameObject != gameObject)
-            {
-                Destroy(other.gameObject);
-            }
+            Debug.Log("Destroy object: " + other.gameObject.name);
+            Destroy(other.gameObject);
+            
         }
     }
 }
